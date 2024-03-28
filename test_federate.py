@@ -75,11 +75,12 @@ class TestFederate:
         while granted_time < 100.0:
             logger.info("start time: " + str(datetime.now()))
 
-            self.pub_measurement.publish(
+            self.pub_example.publish(
                 # If possible, use either basic types available like floats, ints, etc, or types provided
                 # by the oedisi.types.data_types module.
                 # Any indexing information should have appropriate labels if necessary.
-                VoltageArray(values=[0.0, 1.0, 2.0], ids=["node1", "node2", "node3"])
+                3.14159,
+                #VoltageArray(values=[0.0, 1.0, 2.0], ids=["node1", "node2", "node3"])
             )
 
             granted_time = h.helicsFederateRequestTime(self.vfed, int(granted_time) + 1)
